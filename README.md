@@ -14,6 +14,7 @@ Your mission, if you choose to accept it, is to infiltrate the group using the i
 
 Solis uses a simple cipher that maps numbers to letters:
 - **1 → A, 2 → B, 3 → C, ..., 26 → Z**
+- Decoded output should be in **lowercase** (a-z)
 
 The challenge is that messages are written as continuous strings with no breaks or spaces to separate words. This creates ambiguity:
 - `"7213"` could be decoded as:
@@ -35,6 +36,8 @@ Implement a Java file `TheSolisCode.java` with the following specifications:
 ### Package and Class Structure
 ```java
 package csen703.main.assignment1;
+
+import java.util.ArrayList;
 
 public class TheSolisCode {
     // Implementation methods
@@ -101,7 +104,8 @@ Output Results: []
 
 ### Key Considerations
 1. **Base Cases:**
-   - Empty string: 1 way to decode (empty result)
+   - Empty string: 1 way to decode (used as recursion base case)
+   - Null string: Return 0 (invalid input)
    - Single digit: 1 way if valid (1-9), 0 ways if '0'
    - Invalid sequences with '0': Handle carefully
 
